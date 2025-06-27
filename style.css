@@ -1,0 +1,186 @@
+:root {
+  --day-bg: #F1F1F1;
+  --day-text: #140A58;
+  --day-navbar: #C6D1D9;
+  --day-stopwatch-bg: #E7E0D8;
+  --day-button: #829672;
+  --day-button-hover: #6E805E;
+  --day-link: #140A58;
+  --day-toggle: #F8F7F0;
+  --day-nav-active: #5D2D48;
+
+  --night-bg: #0D516A;
+  --night-text: #E7E0D8;
+  --night-navbar: #1F382D;
+  --night-stopwatch-bg: #203841;
+  --night-button: #E7E0D8;
+  --night-button-hover: #d6cdc3;
+  --night-link: #E7E0D8;
+  --night-toggle: #418983;
+  --night-nav-active: #F4EBE9;
+}
+
+/* General Layout */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--day-bg);
+  color: var(--day-text);
+  transition: background 0.4s, color 0.4s;
+}
+
+body.night {
+  background-color: var(--night-bg);
+  color: var(--night-text);
+}
+
+/* Header */
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: var(--day-navbar);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 32px;
+  z-index: 1000;
+}
+
+body.night header {
+  background-color: var(--night-navbar);
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 26px;
+  text-transform: uppercase;
+  flex: 1;
+  text-align: left;
+}
+
+nav {
+  flex: 2;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 14px;
+  text-decoration: none;
+  font-weight: 600;
+  color: inherit;
+}
+
+nav a.active {
+  color: var(--day-nav-active);
+}
+
+body.night nav a.active {
+  color: var(--night-nav-active);
+}
+
+/* Main Content */
+main {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 140px 20px 60px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+p {
+  font-size: 18px;
+  margin: 12px 0;
+}
+
+/* Stopwatch */
+.stopwatch {
+  background-color: var(--day-stopwatch-bg);
+  padding: 30px;
+  border-radius: 12px;
+  margin-top: 30px;
+}
+
+body.night .stopwatch {
+  background-color: var(--night-stopwatch-bg);
+}
+
+#display {
+  font-size: 46px;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.buttons button {
+  background-color: var(--day-button);
+  color: var(--day-bg);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buttons button:hover {
+  background-color: var(--day-button-hover);
+}
+
+/* ✅ FINAL NIGHT MODE BUTTON UPDATE */
+body.night .buttons button {
+  background-color: var(--night-button);
+  color: #203841;
+}
+
+body.night .buttons button:hover {
+  background-color: var(--night-button-hover);
+}
+
+/* Laps */
+#laps {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+/* Links */
+a {
+  color: var(--day-link);
+}
+
+body.night a {
+  color: var(--night-link);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+  }
+
+  nav {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #display {
+    font-size: 36px;
+  }
+}
